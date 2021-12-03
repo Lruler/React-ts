@@ -1,0 +1,11 @@
+{
+  "name": "react-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Lruler/React-ts.git",
+  "author": "lruler <1204312199@qq.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.5.2"
+  }
+}
