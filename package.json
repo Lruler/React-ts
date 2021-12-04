@@ -1,11 +1,22 @@
 {
-  "name": "react-ts",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "git@github.com:Lruler/React-ts.git",
-  "author": "lruler <1204312199@qq.com>",
-  "license": "MIT",
+  "name": "vite-project",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0"
+  },
   "devDependencies": {
-    "typescript": "^4.5.2"
-  }
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@vitejs/plugin-react": "^1.0.0",
+    "typescript": "^4.3.2",
+    "vite": "^2.6.4"
+  },
+  "main": "index.js",
+  "license": "MIT"
 }

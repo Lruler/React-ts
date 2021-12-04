@@ -1,0 +1,7 @@
+config/*
+scripts/*
+App.test.js
+config/webpackDevServer.config.js
+src/services/*
+pontTemplate.ts
+.eslintrc.js
