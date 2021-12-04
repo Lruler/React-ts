@@ -1,19 +1,33 @@
-import './importIcons';
-import classes from '../../static/classes';
+import React from 'react';
+import classNames from 'classnames'
+import { ReactSVG } from 'react-svg';
+import './index.less'
 
-interface IconProps extends React.SVGAttributes<SVGElement> {
-  name: string;
+interface Props {
+  src: string;
+  width?: number;
+  height?: number;
+  classname?: string;
 }
 
-const Icon: React.FunctionComponent<IconProps> = ({
-  className,
-  name,
-  ...restProps
+const Icon: React.FC<Props> = ({
+  src,
+  width = 22,
+  height = 22,
+  classname = '',
 }) => {
+  const classes = classNames('icon', classname)
   return (
-    <svg className={classes('fui-icon', className)} {...restProps}>
-      <use xlinkHref={`#${name}`} />
-    </svg>
+    <>
+      <ReactSVG
+        src={src}
+        className={classes}
+        beforeInjection={(svg) => {
+          svg.setAttribute('width', `${width}`);
+          svg.setAttribute('height', `${height}`);
+        }}
+      />
+    </>
   );
 };
 

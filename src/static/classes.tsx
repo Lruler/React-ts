@@ -12,7 +12,7 @@ interface ClassToggles {
   [K: string]: boolean;
 }
 
-function scopedClassMaker(prefix: string) {
+function scopedClassMaker(prefix?: string) {
   return (name: string | ClassToggles, options?: Options) =>
     Object.entries(name instanceof Object ? name : { [name]: name })
       .filter((kv) => kv[1] !== false)
