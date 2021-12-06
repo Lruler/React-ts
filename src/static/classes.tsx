@@ -14,7 +14,6 @@ interface ClassToggles {
 }
 
 function scopedClassMaker(prefix?: string) {
-  console.log(prefix)
   return (name: string | ClassToggles, options?: Options) =>
     Object.entries(name instanceof Object ? name : { [name]: name })
       .filter((kv) => {
