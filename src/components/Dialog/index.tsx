@@ -5,16 +5,19 @@ import { scopedClassMaker } from '../../static/classes';
 import close from '../../static/svg/close.svg'
 import './index.less'
 
+// 接口类型
 interface Props {
-  visible: boolean;
-  buttons?: Array<ReactElement>;
-  onClose: React.MouseEventHandler;
-  closeOnClickMask?: boolean;
+  visible: boolean; // Dialog 是否出现
+  buttons?: Array<ReactElement>; // 是提示框还是对话框 -- 即是否在footer处添加按钮
+  onClose: React.MouseEventHandler; // 关闭对话框的点击事件
+  closeOnClickMask?: boolean; // 点击蒙层是否关闭Dialog
 }
 
+// 定义组件类名前缀
 const scopedClass = scopedClassMaker('fui-dialog');
-const sc = scopedClass;
-const Dialog: React.FunctionComponent<Props> = (props) => {
+const sc = scopedClass; // 控制类名后缀函数并简写
+// Dialog组件
+const Dialog: React.FC<Props> = (props) => {
   const onClickClose: React.MouseEventHandler = (e) => {
     props.onClose(e);
   };
@@ -43,6 +46,7 @@ const Dialog: React.FunctionComponent<Props> = (props) => {
       </div>
     </Fragment>
   );
+  // 传送到顶层防止层级干扰
   return ReactDOM.createPortal(result, document.body);
 };
 Dialog.defaultProps = {

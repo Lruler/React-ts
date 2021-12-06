@@ -1,4 +1,5 @@
 function classes(...names: (string | undefined)[]) {
+  console.log(names)
   return names.filter(Boolean).join(' ');
 }
 
@@ -13,9 +14,12 @@ interface ClassToggles {
 }
 
 function scopedClassMaker(prefix?: string) {
+  console.log(prefix)
   return (name: string | ClassToggles, options?: Options) =>
     Object.entries(name instanceof Object ? name : { [name]: name })
-      .filter((kv) => kv[1] !== false)
+      .filter((kv) => {
+        return kv[1] !== false
+      })
       .map((kv) => kv[0])
       .map((name) => [prefix, name].filter(Boolean).join('-'))
       .concat((options && options.extra) || [])
