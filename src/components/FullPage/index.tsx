@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './index.css';
 
 interface FullpageProps {
+  routes: string[];
   tips?: string[];
   color?: string;
   navColor?: string;
@@ -9,6 +10,7 @@ interface FullpageProps {
 
 const Fullpage: React.FC<FullpageProps> = ({
   children,
+  routes,
   tips = [],
   color = 'white',
   navColor = 'white',
@@ -41,6 +43,16 @@ const Fullpage: React.FC<FullpageProps> = ({
   const fullPageItem = React.Children.map(children, (c) => {
     return <div className="fullpage-item">{c}</div>;
   });
+  useEffect(() => {
+    if (routes.includes(window.location.pathname.slice(1)))
+      setPageNum(routes.indexOf(window.location.pathname.slice(1)));
+  }, []);
+  useEffect(() => {
+    if (!isScroll) return;
+    else {
+      history.replaceState({}, '', routes[pageNum]);
+    }
+  }, [pageNum]);
   return (
     <>
       <div
