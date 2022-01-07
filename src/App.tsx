@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import Dialog, { alert, confirm, modal } from './components/Dialog';
+import Abbr from './components/Abbr'
 
 function App() {
-  const [x, setX] = useState(false);
-  const [y, setY] = useState(false);
-  const openModal = () => {
-    const close = modal(
-      <h1>
-        你好
-        <button onClick={() => close()}>close</button>
-      </h1>
-    );
-  };
+  // const [x, setX] = useState(false);
+  // const [y, setY] = useState(false);
+  // const openModal = () => {
+  //   const close = modal(
+  //     <h1>
+  //       你好
+  //       <button onClick={() => close()}>close</button>
+  //     </h1>
+  //   );
+  // };
   return (
     <>
-      <div>
+      <Abbr />
+      {/* <div>
         <h1>example 4</h1>
         <button onClick={openModal}>modal</button>
       </div>
@@ -103,7 +105,7 @@ function App() {
         >
           <strong>hi</strong>
         </Dialog>
-      </div>
+      </div> */}
     </>
   );
 }
