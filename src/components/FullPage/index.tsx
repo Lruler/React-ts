@@ -16,10 +16,13 @@ const Fullpage: React.FC<FullpageProps> = ({
   navColor = 'white',
 }) => {
   const pageSum = (children as Array<any>).length;
+
   const [pageNum, setPageNum] = useState(0);
   const [isScroll, setIsScroll] = useState(false);
+
   const handleScroll = (e: React.WheelEvent) => {
     if (isScroll) return false;
+    
     if (e.deltaY > 0) {
       if (pageNum >= pageSum - 1) return false;
       setIsScroll(true);
@@ -36,23 +39,29 @@ const Fullpage: React.FC<FullpageProps> = ({
       }, 1000);
     }
   };
+
   const handlePage = (index: number) => {
     setPageNum(index);
   };
+
   const nav = Array(pageSum).fill(null);
+
   const fullPageItem = React.Children.map(children, (c) => {
     return <div className="fullpage-item">{c}</div>;
   });
+
   useEffect(() => {
     if (routes.includes(window.location.pathname.slice(1)))
       setPageNum(routes.indexOf(window.location.pathname.slice(1)));
   }, []);
+
   useEffect(() => {
     if (!isScroll) return;
     else {
       history.replaceState({}, '', routes[pageNum]);
     }
   }, [pageNum]);
+
   return (
     <>
       <div
