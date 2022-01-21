@@ -3,20 +3,20 @@ import Dialog, { alert, confirm, modal } from './components/Dialog';
 import Abbr from './components/Abbr'
 
 function App() {
-  // const [x, setX] = useState(false);
-  // const [y, setY] = useState(false);
-  // const openModal = () => {
-  //   const close = modal(
-  //     <h1>
-  //       你好
-  //       <button onClick={() => close()}>close</button>
-  //     </h1>
-  //   );
-  // };
+  const [x, setX] = useState(false);
+  const [y, setY] = useState(false);
+  const openModal = () => {
+    const close = modal(
+      <h1>
+        你好
+        <button onClick={() => close()}>close</button>
+      </h1>
+    );
+  };
   return (
     <>
-      <Abbr />
-      {/* <div>
+      {/* <Abbr /> */}
+      <div>
         <h1>example 4</h1>
         <button onClick={openModal}>modal</button>
       </div>
@@ -40,7 +40,7 @@ function App() {
           confirm
         </button>
       </div>
-
+{/* 
       <div
         style={{
           position: 'relative',
@@ -50,8 +50,8 @@ function App() {
         }}
       >
         <h1>example 1</h1>
-        <button onClick={() => setX(!x)}>click</button>
-        <Dialog
+        <button onClick={() => setX(!x)}>click</button> */}
+        {/* <Dialog
           visible={x}
           buttons={[
             <button
@@ -75,9 +75,9 @@ function App() {
         >
           <strong>hi</strong>
         </Dialog>
-      </div>
+      </div> */}
 
-      <div style={{ position: 'relative', zIndex: 9 }}>
+      {/* <div style={{ position: 'relative', zIndex: 9 }}>
         <h1>example 2</h1>
         <button onClick={() => setY(!y)}>click</button>
         <Dialog
